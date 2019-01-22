@@ -6,8 +6,10 @@ import java.util.Map;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -53,6 +55,33 @@ public class RestClient {
 		}
 		//发送post请求
 		CloseableHttpResponse httpResponse=httpClient.execute(httpPost);
+		return httpResponse;
+	}
+	//4. Put方法
+	public CloseableHttpResponse put(String url,String entity,HashMap<String, String> headerMap) 
+			throws ClientProtocolException, IOException  {
+		//创建一个可关闭的HttpClient对象
+		CloseableHttpClient httpClient=HttpClients.createDefault();
+		//创建一个HttpPut的请求对象
+		HttpPut httpPut=new HttpPut(url);
+		//设置payload
+		httpPut.setEntity(new StringEntity(entity));
+		//加载请求头到httpput对象
+		for(Map.Entry<String, String> entry:headerMap.entrySet()) {
+			httpPut.addHeader(entry.getKey(), entry.getValue());
+		}
+		//发送put请求
+		CloseableHttpResponse httpResponse=httpClient.execute(httpPut);
+		return httpResponse;
+	}
+	//5. Delete方法
+	public CloseableHttpResponse delete(String url) throws ClientProtocolException, IOException {	
+		//创建一个可关闭的HttpClient对象
+		CloseableHttpClient httpClient=HttpClients.createDefault();
+		//创建一个HttpDelete的请求对象
+		HttpDelete httpDelete=new HttpDelete(url);
+		//发送delete请求
+		CloseableHttpResponse httpResponse=httpClient.execute(httpDelete);
 		return httpResponse;
 	}
 }
