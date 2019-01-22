@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1220" started-at="2019-01-21T11:58:59Z" finished-at="2019-01-21T11:59:01Z">
+  <suite name="Default suite" duration-ms="1798" started-at="2019-01-22T02:58:33Z" finished-at="2019-01-22T02:58:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1220" started-at="2019-01-21T11:58:59Z" finished-at="2019-01-21T11:59:01Z">
-      <class name="com.dje.tests.PostApiTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.dje.tests.PostApiTest@39aeed2f]" name="setUp" is-config="true" duration-ms="7" started-at="2019-01-21T11:58:59Z" finished-at="2019-01-21T11:58:59Z">
+    <test name="Default test" duration-ms="1798" started-at="2019-01-22T02:58:33Z" finished-at="2019-01-22T02:58:35Z">
+      <class name="com.dje.tests.GetApiTest_log_optimize">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.dje.tests.GetApiTest_log_optimize@60c6f5b]" name="setUp" is-config="true" duration-ms="14" started-at="2019-01-22T02:58:33Z" finished-at="2019-01-22T02:58:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="postApiTest()[pri:0, instance:com.dje.tests.PostApiTest@39aeed2f]" name="postApiTest" duration-ms="1200" started-at="2019-01-21T11:58:59Z" finished-at="2019-01-21T11:59:01Z">
+        <test-method status="PASS" signature="testGet()[pri:0, instance:com.dje.tests.GetApiTest_log_optimize@60c6f5b]" name="testGet" duration-ms="1760" started-at="2019-01-22T02:58:33Z" finished-at="2019-01-22T02:58:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- postApiTest -->
-      </class> <!-- com.dje.tests.PostApiTest -->
+        </test-method> <!-- testGet -->
+      </class> <!-- com.dje.tests.GetApiTest_log_optimize -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
