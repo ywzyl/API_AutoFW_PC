@@ -47,6 +47,7 @@ public class TestCase1 extends TestBase{
         //将登录请求对象序列化成json对象
         String userJsonString = JSON.toJSONString(loginParameters);
         //发送登录请求
+        System.out.println(host+loginUrl);
         closeableHttpResponse = restClient.post(host+loginUrl,userJsonString,postHeader);
         //从返回结果中获取状态码
         int statusCode = TestUtil.getStatusCode(closeableHttpResponse);
