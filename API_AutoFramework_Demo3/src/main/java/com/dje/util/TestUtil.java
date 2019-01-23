@@ -25,8 +25,7 @@ public class TestUtil {
         String Token = ctx.read(jsonPath); //"$.EFPV3AuthenticationResult.Token"
         if(null == Token||"".equals(Token)){
             new Exception("token²»´æÔÚ");
-        }
- 
+        } 
         responseToken.put("x-ba-token",Token);
         return responseToken;
     }
