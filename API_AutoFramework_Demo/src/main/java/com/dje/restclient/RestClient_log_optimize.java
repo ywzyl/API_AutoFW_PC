@@ -70,6 +70,7 @@ public class RestClient_log_optimize {
 	 */
 	public CloseableHttpResponse post(String url,String entityString,HashMap<String, String> headerMap) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpClient=HttpClients.createDefault();
+		headerMap.put("Content-Type", "application/json");
 		HttpPost httpPost=new HttpPost(url);
 		//…Ë÷√payload
 		httpPost.setEntity(new StringEntity(entityString));
@@ -92,6 +93,7 @@ public class RestClient_log_optimize {
 	 */
 	public CloseableHttpResponse put(String url,String entityString,HashMap<String, String> headerMap) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpClient=HttpClients.createDefault();
+		headerMap.put("Content-Type", "application/json");
 		HttpPut httpPut=new HttpPut(url);
 		//…Ë÷√payload
 		httpPut.setEntity(new StringEntity(entityString));
