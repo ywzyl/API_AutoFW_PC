@@ -38,6 +38,7 @@ public class EFPStagingCN extends TestBase{
 	@DataProvider(name="postData")
 	public Object[][] post() throws IOException{
 		return dtt(testCaseExcel, 0);
+		
 	}
 	@DataProvider(name="getData")
 	public Object[][] get() throws IOException{
@@ -51,9 +52,9 @@ public class EFPStagingCN extends TestBase{
 	public void login(String url,String email,String password) throws Exception {
 		PostParameters loginParameters=new PostParameters(email,password);
 		String urlJsonString=JSON.toJSONString(loginParameters);
-		//·¢ËÍµÇÂ¼ÇëÇó
+		//ï¿½ï¿½ï¿½Íµï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 		closeableHttpResponse=restClient.post(host+url, urlJsonString, postheader);
-		//»ñÈ¡µÇÂ¼ºóµÄtoken
+		//ï¿½ï¿½È¡ï¿½ï¿½Â¼ï¿½ï¿½ï¿½token
 		loginToken=TestUtil.getToken(closeableHttpResponse, tokenPath);
 		System.out.println(loginToken);
 		int statusCode=closeableHttpResponse.getStatusLine().getStatusCode();
@@ -61,7 +62,7 @@ public class EFPStagingCN extends TestBase{
 	}
 	@Test(dataProvider="getData",dependsOnMethods= {"login"})
 	public void getMethod(String url) throws ClientProtocolException, IOException {
-		 //½«token¸³Öµºó·¢ËÍgetÇëÇó
+		 //ï¿½ï¿½tokenï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½getï¿½ï¿½ï¿½ï¿½
 		closeableHttpResponse=restClient.get(host+url, loginToken);
 		int statusCode=closeableHttpResponse.getStatusLine().getStatusCode();
 		Assert.assertEquals(statusCode, 200);

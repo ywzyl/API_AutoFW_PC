@@ -4,6 +4,7 @@ import java.util.HashMap;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -43,30 +44,36 @@ public class TestCase2 extends TestBase{
 	}
 	@Test(dataProvider="postData")
 	public void login(String loginUrl,String email,String password) throws ClientProtocolException, IOException {
-		//Ê¹ÓÃ¹¹Ôìº¯Êı½«´«ÈëµÄÓÃ»§ÃûÃÜÂë³õÊ¼»¯³ÉµÇÂ¼ÇëÇó²ÎÊı
+		 //ä½¿ç”¨æ„é€ å‡½æ•°å°†ä¼ å…¥çš„ç”¨æˆ·åå¯†ç åˆå§‹åŒ–æˆç™»å½•è¯·æ±‚å‚æ•°
 		PostParameters loginParameters=new PostParameters(email,password);
-		//½«µÇÂ¼ÇëÇó¶ÔÏóĞòÁĞ»¯³Éjson¶ÔÏó
+		//å°†ç™»å½•è¯·æ±‚å¯¹è±¡åºåˆ—åŒ–æˆjsonå¯¹è±¡
 		String userJsonString=JSON.toJSONString(loginParameters);
-		//·¢ËÍµÇÂ¼ÇëÇó
+		//å‘é€ç™»å½•è¯·æ±‚
 		closeableHttpResponse=restClient.post(host+loginUrl, userJsonString, postheader);
-		//´Ó·µ»Ø½á¹ûÖĞ»ñÈ¡×´Ì¬Âë
+		//ä»è¿”å›ç»“æœä¸­è·å–çŠ¶æ€ç 
 		int status=closeableHttpResponse.getStatusLine().getStatusCode();
 		Assert.assertEquals(status, 200);
+		Reporter.log("çŠ¶æ€ç "+status,true);
+		Reporter.log("æ¥å£åœ°å€ï¼š "+loginUrl);
 	}
 	@Test(dataProvider="get")
 	public void getApi(String url) throws ClientProtocolException, IOException {
 		closeableHttpResponse=restClient.get(host+url);
 		int statusCode=closeableHttpResponse.getStatusLine().getStatusCode();
 		Assert.assertEquals(statusCode, 200);
+		Reporter.log("çŠ¶æ€ç "+statusCode,true);
+		Reporter.log("æ¥å£åœ°å€ï¼š"+url);
 	}
 	@Test(dataProvider="delete")
 	public void deleteApi(String url) throws ClientProtocolException, IOException {
 		closeableHttpResponse=restClient.delete(host+url);
 		int statusCode=closeableHttpResponse.getStatusLine().getStatusCode();
-		Assert.assertEquals(statusCode, 200);
+		Assert.assertEquals(statusCode, 204);
+		Reporter.log("çŠ¶æ€ç "+statusCode,true);
+		Reporter.log("æ¥å£åœ°å€ï¼š"+url);
 	}
 	@AfterClass
 	public void tearDown() {
-		System.out.println("²âÊÔ½áÊø");
+		System.out.println("æµ‹è¯•ç»“æŸ");
 	}
 }

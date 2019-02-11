@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="Default Suite" verbose="1" preserve-order="true" parallel="false">
+  <test name="TestCase2">
     <classes>
-      <class name="com.dje.tests.TestCase1"/>
+      <class name="com.dje.tests.TestCase2">
+      	<methods>
+      		<include name="login"></include>
+      		<include name="getApi"></include>
+      		<include name="deleteApi"></include>
+      	</methods>
+      </class>
     </classes>
   </test> <!-- Test -->
+  <listeners>
+  	<listener class-name="com.dje.report.ExtentTestNGReporterListener"></listener>
+  </listeners>
 </suite> <!-- Suite -->

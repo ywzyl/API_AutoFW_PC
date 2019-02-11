@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.dje.report.ExtentTestNGReporterListener"/>
+  </listeners>
+  <test thread-count="5" name="TestCase2(failed)">
+    <classes>
+      <class name="com.dje.tests.TestCase2">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="deleteApi" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.dje.tests.TestCase2 -->
+    </classes>
+  </test> <!-- TestCase2(failed) -->
+</suite> <!-- Failed suite [Suite] -->
